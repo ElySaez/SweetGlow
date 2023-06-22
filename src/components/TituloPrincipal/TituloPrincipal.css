@@ -1,0 +1,17 @@
+.titulo-principal {
+    background-color: lavender;
+    padding: 20px;
+    margin: auto;
+    max-width: 100%;
+  }
+  
+  .titulo-principal h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #5120ac;
+  }
+  
+  .titulo-principal h2 {
+    font-size: 24px;
+  }
+  
