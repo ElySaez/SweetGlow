@@ -1,18 +1,29 @@
 import React from 'react'
 import NavBar from './components/NavBar/NavBar'
 import 'bootstrap/dist/css/bootstrap.css';
-import TituloPrincipal from './components/TituloPrincipal/TextoPrincipal';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Banner from './components/Banner/Banner';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Index from './components/Index/Index';
+import Products from './components/Products/Products';
+import ItemDetail from  "./components/Products/ItemDetail/ItemDetail"
+import Footer from './components/Footer/Footer';
 
 
 const App = () => {
   return (
-    <div>
-      <NavBar />      
-      <TituloPrincipal titulo={"Sweet Glow"} subtitulo = {"Cosmetic and skincare"} />
-      <ItemListContainer greeting={"Este sitio aún está en construcción, para mayor información puedes contactarnos a contacto@sweetglow.cl"}/>
-    </div >
-      
+    <>
+      <BrowserRouter>
+      <NavBar />
+      <Banner />
+        <Routes>
+          <Route path='/' element={<Index />} />
+          <Route path="/productos" element={<Products />} />
+          <Route path="/categoria/:idCategoria" element={<Products/>} />
+          <Route path="/item/:idItem" element={<ItemDetail/>} />
+        </Routes>
+      <Footer />
+      </BrowserRouter>
+    </ >
   )
 }
 

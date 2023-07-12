@@ -11,4 +11,3 @@ const Cart = ({ itemCount }) => {
 };
 
 export default Cart;
-
