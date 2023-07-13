@@ -20,16 +20,18 @@ const Products = () => {
   }, [idCategoria])
 
   return (
-    <div className="container">
-      <div className="row">
+    
+    <div className="container mb-5">
+      <div className="row">      
 
-        <div className="text-center">
-          <h1>Productos</h1>
-        </div>
+        
 
-        <CategoriesMenu />
+        <CategoriesMenu />        
 
         <div className="col">
+        <div className="text-center mb-5">
+        <h1>Productos</h1>
+        </div>
           <Row xs={1} md={2} lg={3} className="g-4">
             {productos.map(prod =>
               <Col key={prod.id}>

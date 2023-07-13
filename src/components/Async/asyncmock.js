@@ -1,8 +1,8 @@
 const misProductos = [
-  { id: "1", nombre: "Yerba", precio: 500, img: "../img/yerba.jpg", idCat: "2", desc: "Un increible producto" },
-  { id: "2", nombre: "Fideos", precio: 180, img: "../img/fideos.jpg", idCat: "2", desc: "Un increible producto" },
-  { id: "3", nombre: "Arroz", precio: 200, img: "../img/arroz.jpg", idCat: "1", desc: "Un increible producto" },
-  { id: "4", nombre: "Aceite", precio: 900, img: "../img/aceite.jpg", idCat: "1", desc: "Un increible producto" },
+  { id: "1", nombre: "Aceite Esencial", precio: 15000, img: "../img/aceites.png", idCat: "2", desc: "Un increible producto" },
+  { id: "2", nombre: "Primer", precio: 18000, img: "../img/primer.png", idCat: "2", desc: "Un increible producto" },
+  { id: "3", nombre: "Sombras", precio: 20000, img: "../img/makeup.png", idCat: "1", desc: "Un increible producto" },
+  { id: "4", nombre: "Pack de cosméticos", precio: 9000, img: "../img/cpiel.png", idCat: "1", desc: "Un increible producto" },
 ]
 
 export const getProductos = () => {
