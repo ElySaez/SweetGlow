@@ -1,48 +1,47 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useContext } from "react";
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+
 import Card from 'react-bootstrap/Card';
 
-import { getUnProducto } from "../../Async/asyncmock";
-import CategoriesMenu from "../../CategoriesMenu/CategoriesMenu";
+import { CarritoContext } from '../../../context/CarritoContext';
 
-const ItemDetail = () => {
-  const [producto, setProducto] = useState(false);
-  const { idItem } = useParams();
 
-  useEffect(() => {
-    getUnProducto(idItem)
-    .then(res => setProducto(res))
-    .catch(error => console.log(error))
-  }, [idItem])
+const ItemDetail = ({ id, nombre, precio, desc, img, stock }) => {
 
-  return (
-    <div className="container">
-      <div className="row">
+    const [agregarCantidad, setAgregarCantidad] = useState(0);
+    const { agregarProducto } = useContext(CarritoContext);
 
-        <div className="text-center">
-          <h1>{producto.nombre}</h1>
+    const manejadorCantidad = (cantidad) => {
+        setAgregarCantidad(cantidad);
+        const item = { id, nombre, precio };
+        agregarProducto(item, cantidad);
+    }
+
+    return (
+        <div>
+
+            {<div className="text-center">
+                <h1>{nombre}</h1>
+            </div>}
+
+            <Card>
+                <Card.Img variant="top" src={img} alt={nombre} />
+                <Card.Body>
+                    <Card.Title>{nombre}</Card.Title>
+                    <Card.Text>
+                        {desc}
+                    </Card.Text>
+                    <Card.Text>
+                        Precio: {precio} <br /> ID: {id}
+                    </Card.Text>
+                    {
+                        agregarCantidad > 0 ? (<Link to="/cart"> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)
+                    }
+                </Card.Body>
+            </Card >
         </div>
-
-        <CategoriesMenu />
-
-        <div className="col">
-          <Card>
-            <Card.Img variant="top" src={producto.img} alt={producto.nombre} />
-            <Card.Body>
-              <Card.Title>{producto.nombre}</Card.Title>
-              <Card.Text>
-                {producto.desc}
-              </Card.Text>
-              <Card.Text>
-                Precio: {producto.precio} <br /> ID: {producto.id}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-    </div>
-
-  )
+    )
 }
 
 export default ItemDetail

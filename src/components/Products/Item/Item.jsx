@@ -2,7 +2,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, nombre, precio, img, desc }) => {
+const Item = ({ id, nombre, precio, img, desc, stock }) => {
   return (
     <CardGroup>
       <Card>
